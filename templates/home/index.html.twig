@@ -6,18 +6,21 @@
 <div class="container">
     <main class="main">
         {% for project in projects %}
-            <article class="article article__0{{ loop.index }}" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 1 ? 'hidden' }}>
-                <figure>
-<img class="image" src="{{ asset('build/images/' ~ project.image) }}" alt="picture of image :)" />
-                    <figcaption class="text__content">
-                        <h1 class="title">{{ project.title }}</h1>
-                        <p class="description">
-                            {{ project.description }}
-                        </p>
-                        <button class="cta-btn">Click Here</button>
-                    </figcaption>
-                </figure>
-            </article>
+           <article class="article article__0{{ loop.index }}" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 1 ? 'hidden' }}>
+    <div class="project-content flex">
+        <figcaption class="text__content">
+            <h1 class="title">{{ project.title }}</h1>
+            <p class="description">
+                {{ project.description }}
+            </p>
+            <button class="cta-btn">Click Here</button>
+        </figcaption>
+        <figure>
+            <img class="image" src="{{ asset('build/images/' ~ project.image) }}" alt="picture of image :)" />
+        </figure>
+    </div>
+</article>
+
         {% endfor %}
     </main>
     <aside class="aside">
