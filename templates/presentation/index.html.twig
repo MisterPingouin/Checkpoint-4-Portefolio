@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Presentation{% endblock %}
+        {% block stylesheets %}
+		{{ parent()}}
+            {{ encore_entry_link_tags('presentation') }}
+        {% endblock %}
+{% block javascripts %}
+	{{ parent()}}
+	{{ encore_entry_script_tags('presentation') }}
+{% endblock %}
+
+{% block body %}
+  <section>
+    {% for presentation in presentations %}
+    <article class="{{ loop.first ? 'current static' : '' }}">
+        <div class="image-wrap green">
+            <img src="{{ asset('build/images/' ~ presentation.link) }}">
+        </div>
+        <div class="caption flex">
+            <p>{{ presentation.fonction }}</p>
+            <p>{{ presentation.description }}</p>
+        </div>
+    </article>
+    {% endfor %}
+  </section>
+{% endblock %}
+
