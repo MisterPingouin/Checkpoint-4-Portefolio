@@ -3,13 +3,92 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <div class="pink-stripe">
-        <h1>
-            Let's start coding&nbsp;&#129304;
-        </h1>
-    </div>
-    <div class="white-stripe">
-        <img src="{{ asset('build/images/LOGO_WILD_CODE_SCHOOL.png') }}"
-             alt="">
-    </div>
+<div class="container">
+    <main class="main">
+        <article class="article article__01" role="tabpanel" aria-labelledby="1">
+            <figure>
+                <img class="image" src="https://cdn.pixabay.com/photo/2016/11/23/14/45/coding-1853305__340.jpg" alt="picture of image :)" />
+                <figcaption class="text__content">
+                    <h1 class="title">First Title</h1>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Itaque aliquam natus eum
+                        adipisci saepe soluta! Nam repudiandae sed
+                        accusamus fugiat voluptas perspiciatis?
+                    </p>
+                    <button class="cta-btn">Click Here</button>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="article article__02" role="tabpanel" aria-labelledby="2" hidden>
+            <figure>
+                <img class="image" src="https://cdn.pixabay.com/photo/2023/01/10/03/59/programming-7708867__340.jpg" alt="picture of image :)" />
+                <figcaption class="text__content">
+                    <h1 class="title">Second Title</h1>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Itaque aliquam natus eum
+                        adipisci saepe soluta! Nam repudiandae sed
+                        accusamus fugiat voluptas perspiciatis?
+                    </p>
+                    <button class="cta-btn">Click Here</button>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="article article__03" role="tabpanel" aria-labelledby="3" hidden>
+            <figure>
+                <img class="image" src="https://cdn.pixabay.com/photo/2017/10/12/22/17/business-2846221__340.jpg" alt="picture of image :)" />
+                <figcaption class="text__content">
+                    <h1 class="title">Third Title</h1>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Itaque aliquam natus eum
+                        adipisci saepe soluta! Nam repudiandae sed
+                        accusamus fugiat voluptas perspiciatis?
+                    </p>
+                    <button class="cta-btn">Click Here</button>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="article article__04" role="tabpanel" aria-labelledby="4" hidden>
+            <figure>
+                <img class="image" src="https://cdn.pixabay.com/photo/2017/07/31/11/31/laptop-2557468__340.jpg" alt="picture of image :)" />
+                <figcaption class="text__content">
+                    <h1 class="title">Last Title</h1>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Itaque aliquam natus eum
+                        adipisci saepe soluta! Nam repudiandae sed
+                        accusamus fugiat voluptas perspiciatis?
+                    </p>
+                    <button class="cta-btn">Click Here</button>
+                </figcaption>
+            </figure>
+        </article>
+        <article class="article article__05" role="tabpanel" aria-labelledby="5" hidden>
+            <figure>
+                <img class="image" src="https://cdn.pixabay.com/photo/2017/09/05/10/19/business-2717063__340.jpg" alt="picture of image :)" />
+                <figcaption class="text__content">
+                    <h1 class="title">Final Title</h1>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Itaque aliquam natus eum
+                        adipisci saepe soluta! Nam repudiandae sed
+                        accusamus fugiat voluptas perspiciatis?
+                    </p>
+                    <button class="cta-btn">Click Here</button>
+                </figcaption>
+            </figure>
+        </article>
+    </main>
+    <aside class="aside">
+        <nav role="tablist" class="thumbnail__navigation">
+            <button role="tab" aria-selected="true" class="thumbnail__btn" id="1"></button>
+            <button role="tab" aria-selected="false" class="thumbnail__btn" id="2"></button>
+            <button role="tab" aria-selected="false" class="thumbnail__btn" id="3"></button>
+            <button role="tab" aria-selected="false" class="thumbnail__btn" id="4"></button>
+            <button role="tab" aria-selected="false" class="thumbnail__btn" id="5"></button>
+        </nav>
+    </aside>
+</div>
 {% endblock %}
