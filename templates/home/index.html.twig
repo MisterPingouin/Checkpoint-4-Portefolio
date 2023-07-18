@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}PorteFolio{% endblock %}
 
 {% block body %}
 <div class="container">
     <main class="main">
-
         {% for project in projects %}
             <article class="article article__0{{ loop.index }}" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 1 ? 'hidden' }}>
                 <figure>
@@ -24,9 +23,9 @@
     <aside class="aside">
         <nav role="tablist">
             {% for project in projects %}
-                <button class="thumbnail__btn" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}">
-                    <span class="sr-only">{{ project.title }}</span>
-                </button>
+<button class="thumbnail__btn" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">
+    <span class="sr-only">{{ project.title }}</span>
+</button>
             {% endfor %}
         </nav>
     </aside>
