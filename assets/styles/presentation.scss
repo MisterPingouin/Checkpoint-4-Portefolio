@@ -4,15 +4,6 @@
     box-sizing: border-box;
   }
   
-  html, body {
-    min-height: 100%;
-    height: 100%;
-    position: relative;
-  }
-  
-  html {
-    font-size: 62.5%;
-  }
   
   body {
     font-family: 'Open Sans', helvetica, arial;
@@ -65,12 +56,11 @@
       }
       
       &.green { 
-        background: #4fd;
-        background: linear-gradient(to bottom, #4fd, #509ad6);
+        background: white;
       }
       
       &.yellow {
-        background: #ec9;
+        background: white;
       }
     }
     

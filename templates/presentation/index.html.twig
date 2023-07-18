@@ -9,13 +9,15 @@
 	{{ parent()}}
 	{{ encore_entry_script_tags('presentation') }}
 {% endblock %}
-
+  {% block navbar %}
+    {% include 'includes/navbarpres.html.twig' %}
+    {% endblock %}
 {% block body %}
-  <section>
+  <section class="font-titlefont">
     {% for presentation in presentations %}
     <article class="{{ loop.first ? 'current static' : '' }}">
         <div class="image-wrap green">
-            <img src="{{ asset('build/images/' ~ presentation.link) }}">
+            <img class="rounded" src="{{ asset('build/images/' ~ presentation.link) }}">
         </div>
         <div class="caption flex">
             <p>{{ presentation.fonction }}</p>
