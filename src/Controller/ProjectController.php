@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 #[Route('/project')]
 class ProjectController extends AbstractController
@@ -23,6 +24,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/new', name: 'app_project_new', methods: ['GET', 'POST'])]
+    #[Security('is_granted("ROLE_ADMIN")')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $project = new Project();
@@ -51,6 +53,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_project_edit', methods: ['GET', 'POST'])]
+    #[Security('is_granted("ROLE_ADMIN")')]
     public function edit(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(ProjectType::class, $project);
@@ -69,6 +72,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_project_delete', methods: ['POST'])]
+    #[Security('is_granted("ROLE_ADMIN")')]
     public function delete(Request $request, Project $project, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $project->getId(), $request->request->get('_token'))) {
