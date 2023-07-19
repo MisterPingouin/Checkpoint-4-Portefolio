@@ -48,7 +48,11 @@ class PresentationController extends AbstractController
             $entityManager->persist($presentation);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_presentation_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute(
+                'app_presentation_index',
+                ['projectId' => $projectId],
+                Response::HTTP_SEE_OTHER
+            );
         }
 
         return $this->render('presentation/new.html.twig', [
@@ -92,11 +96,13 @@ class PresentationController extends AbstractController
         Presentation $presentation,
         EntityManagerInterface $entityManager
     ): Response {
+        $projectId = $presentation->getProject()->getId();
+
         if ($this->isCsrfTokenValid('delete' . $presentation->getId(), $request->request->get('_token'))) {
             $entityManager->remove($presentation);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_presentation_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_presentation_index', ['projectId' => $projectId], Response::HTTP_SEE_OTHER);
     }
 }

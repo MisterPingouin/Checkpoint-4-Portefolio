@@ -17,7 +17,7 @@
     {% for presentation in presentations %}
     <article class="{{ loop.first ? 'current static' : '' }}">
         <div class="image-wrap">
-            <img class="rounded" src="{{ asset('build/images/' ~ presentation.link) }}">
+            <img class="rounded shadow-sm" src="{{ asset('build/images/' ~ presentation.link) }}">
         </div>
         <div class="caption flex flex-col justify-center content-center">
             <h1 class="pl-3 pb-10 mb-2 font-bold">{{ presentation.fonction }}</h1>
