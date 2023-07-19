@@ -3,32 +3,36 @@
 {% block title %}Project{% endblock %}
 
 {% block body %}
-    <h1>Project</h1>
+    <div class="container mx-auto px-4">
+        <h1 class="text-xl font-bold mb-4">Project</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ project.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ project.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ project.description }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ project.image }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="w-full bg-white shadow-md rounded my-6 overflow-auto">
+            <table class="min-w-max w-full table-auto">
+                <tbody class="text-gray-600 text-sm font-light">
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <th class="py-3 px-6 text-left">Id</th>
+                        <td class="py-3 px-6">{{ project.id }}</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <th class="py-3 px-6 text-left">Title</th>
+                        <td class="py-3 px-6">{{ project.title }}</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <th class="py-3 px-6 text-left">Description</th>
+                        <td class="py-3 px-6">{{ project.description }}</td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <th class="py-3 px-6 text-left">Image</th>
+                        <td class="py-3 px-6">{{ project.image }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-    <a href="{{ path('app_project_index') }}">back to list</a>
+        <a href="{{ path('app_admin') }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Back to list</a>
 
-    <a href="{{ path('app_project_edit', {'id': project.id}) }}">edit</a>
+        <a href="{{ path('app_project_edit', {'id': project.id}) }}" class="inline-block bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">Edit</a>
 
-    {{ include('project/_delete_form.html.twig') }}
+        {{ include('project/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
