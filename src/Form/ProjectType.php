@@ -28,6 +28,13 @@ class ProjectType extends AbstractType
                 border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring'],
                 'label_attr' => ['class' => 'block text-gray-800'],
             ])
+            ->add('video', TextType::class, [
+                'required' => false,
+                'attr' => ['class' => 'block w-full px-4 py-2 mt-2 text-gray-800 bg-gray-200 border
+                border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring'],
+                'label_attr' => ['class' => 'block text-gray-800'],
+            ])
+
         ;
     }
 

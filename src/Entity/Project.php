@@ -32,6 +32,21 @@ class Project
     #[ORM\OneToMany(mappedBy: 'project', targetEntity: Presentation::class)]
     private Collection $presentations;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $video = null;
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?string $video): static
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
     public function __construct()
     {
         $this->presentations = new ArrayCollection();
