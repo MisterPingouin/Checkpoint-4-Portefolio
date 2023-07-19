@@ -25,7 +25,7 @@
 </button>
     </figcaption>
     <figure class="flex justify-center sm:justify-start">
-        <img class="image rounded max-w-full h-auto" src="{{ asset('build/images/' ~ project.image) }}" alt="picture of image :)" />
+        <img class="image rounded max-w-full h-auto shadow-sm " src="{{ asset('build/images/' ~ project.image) }}" alt="picture of image :)" />
     </figure>
 </div>
 </article>
@@ -35,6 +35,7 @@
             {% for project in projects %}
 <button class="thumbnail__btn" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">
     <span class="sr-only">{{ project.title }}</span>
+        <span class="thumbnail__title">{{ project.title }}</span>
 </button>
             {% endfor %}
         </nav>
