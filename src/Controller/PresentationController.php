@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Project;
 
 #[Route('/presentation')]
 class PresentationController extends AbstractController
@@ -21,13 +22,22 @@ class PresentationController extends AbstractController
 
         return $this->render('presentation/index.html.twig', [
             'presentations' => $presentations,
+            'projectId' => $projectId,
         ]);
     }
 
 
-    #[Route('/new', name: 'app_presentation_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/new/{projectId}', name: 'app_presentation_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntityManagerInterface $entityManager, int $projectId): Response
     {
+        $project = $entityManager->getRepository(Project::class)->find($projectId);
+
+        if (!$project) {
+            throw $this->createNotFoundException('The project does not exist');
+        }
+
+        $presentation = new Presentation();
+        $presentation->setProject($project);
         $presentation = new Presentation();
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
@@ -42,6 +52,7 @@ class PresentationController extends AbstractController
         return $this->render('presentation/new.html.twig', [
             'presentation' => $presentation,
             'form' => $form,
+            'projectId' => $projectId
         ]);
     }
 

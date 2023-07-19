@@ -15,6 +15,11 @@ class Project
     #[ORM\Column]
     private ?int $id = null;
 
+    public function __toString(): string
+    {
+        return $this->title;
+    }
+
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
