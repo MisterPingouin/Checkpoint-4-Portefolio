@@ -16,15 +16,16 @@
   <section class="font-titlefont">
     {% for presentation in presentations %}
     <article class="{{ loop.first ? 'current static' : '' }}">
-        <div class="image-wrap green">
+        <div class="image-wrap">
             <img class="rounded" src="{{ asset('build/images/' ~ presentation.link) }}">
         </div>
-        <div class="caption flex">
-            <p>{{ presentation.fonction }}</p>
-            <p>{{ presentation.description }}</p>
+        <div class="caption flex flex-col justify-center content-center">
+            <h1 class="pl-3 pb-10 mb-2 font-bold">{{ presentation.fonction }}</h1>
+            <p class="pl-3 mt-4 pt-4">{{ presentation.description }}</p>
         </div>
     </article>
     {% endfor %}
   </section>
 {% endblock %}
+
 

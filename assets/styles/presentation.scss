@@ -1,15 +1,9 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+
   }
   
-  
-  body {
-    font-family: 'Open Sans', helvetica, arial;
-    font-size: 16px;
-    line-height: 1.6em;
-  }
   
   section {
     height: 100%;
@@ -22,7 +16,7 @@
     height: 100vh;
     
     .caption {
-      width: 50%;
+
       height: 100%;
       position: relative;
       top: 0;
@@ -30,7 +24,7 @@
       
       p {
         position: relative;
-        top: 50%;
+        max-width: 48%;
         transform: translateY(-50%);
       }
     }
@@ -42,7 +36,7 @@
       top: 0;
       right: 0;
       transform: translateY(100%);
-      transition: transform 0.3s ease-out;
+      transition: transform 0.5s ease-out;
       
       img {
         display: table;
@@ -55,13 +49,6 @@
         left: 50%;
       }
       
-      &.green { 
-        background: white;
-      }
-      
-      &.yellow {
-        background: white;
-      }
     }
     
     &.current, &.static {
@@ -91,3 +78,8 @@
       }
     }
   }
+
+  article.previous .image-wrap {
+    opacity: 0.9;
+}
+
