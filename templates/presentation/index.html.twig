@@ -19,13 +19,21 @@
         <div class="image-wrap">
             <img class="rounded shadow-sm" src="{{ asset('build/images/' ~ presentation.link) }}">
         </div>
-        <div class="caption flex flex-col justify-center content-center">
-            <h1 class="pl-3 pb-10 mb-2 font-bold">{{ presentation.fonction }}</h1>
-            <p class="pl-3 mt-4 pt-4">{{ presentation.description }}</p>
+        <div class="caption flex flex-col justify-center items-start"> 
+            <div class="left-content content-wrapper w-full flex flex-col">
+                <div class="text-container">
+                    <h1 class="pl-3 pb-10 mb-2 font-bold text-left w-full">{{ presentation.fonction }}</h1>
+                    <p class="pl-3 mt-4 pt-4 w-full text-left">{{ presentation.description|raw|nl2br }}</p>
+                </div>
+                <div class='scrolldown mt-4'>
+                    <div class="chevrons">
+                        <div class='chevrondown'></div>
+                        <div class='chevrondown'></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </article>
     {% endfor %}
   </section>
 {% endblock %}
-
-
