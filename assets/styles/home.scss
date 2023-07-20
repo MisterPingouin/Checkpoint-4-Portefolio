@@ -260,11 +260,22 @@ figure {
         height: 2rem;
     }
 
-    .test {
+    .responsive {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         padding-bottom: 10em;
+    }
+}
+
+@media (min-width: 1555px) {
+    
+    .responsive {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10em;
     }
 }

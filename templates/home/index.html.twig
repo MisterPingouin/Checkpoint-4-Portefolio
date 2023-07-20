@@ -11,10 +11,10 @@
 {% endblock %}
 
 {% block body %}
-<div class="test relative mx-auto flex flex-col items-center justify-between h-screen md:h-[90vh] p-4 md:p-16 font-titlefont">   
+<div class="responsive relative mx-auto flex flex-col items-center justify-between h-screen md:h-[90vh] p-4 md:p-16 font-titlefont">   
         {% for project in projects %}
 <article class="article article__0{{ loop.index }} flex flex-col items-center justify-between w-full" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 3 ? 'hidden' }}> 
-    <div class="flex flex-col md:flex-row items-center justify-between w-full">
+    <div class="flex flex-col md:flex-row items-center justify-center w-full">
     <figcaption class="md:mb-4 sm:mb-0 sm:mr-4">
         <h1 class="title font-bold text-accentcolor">{{ project.title }}</h1>
         <p class="description font-contentfont font-semibold text-gray-700 text-sm md:text-lg mt-3">
@@ -29,7 +29,7 @@
     </button>
 </a>
     </figcaption>
-   <figure class="flex justify-center sm:justify-start mt-2 md:mt-0">
+   <figure class="flex justify-center sm:justify-start mt-2 md:mt-0 lg:ml-5 lg:pl-5">
 {% if project.video is not null %}
     <video id="video{{ loop.index }}" class="image rounded max-w-full h-auto shadow-sm" autoplay muted>
         <source src="{{ asset('build/videos/' ~ project.video) }}" type="video/mp4">
