@@ -58,7 +58,7 @@ class PresentationController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute(
-                'app_presentation_index',
+                'app_admin_presentation',
                 ['projectId' => $projectId],
                 Response::HTTP_SEE_OTHER
             );
@@ -92,7 +92,7 @@ class PresentationController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute(
-                'app_presentation_index',
+                'app_admin_presentation',
                 ['projectId' => $projectId],
                 Response::HTTP_SEE_OTHER
             );

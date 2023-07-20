@@ -13,12 +13,12 @@
 {% block body %}
 <div class=" relative m-auto flex justify-center items-start h-[90vh] font-titlefont">   
         {% for project in projects %}
-        <article class="article article__0{{ loop.index }}" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 1 ? 'hidden' }}> 
+<article class="article article__0{{ loop.index }}" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 3 ? 'hidden' }}> 
   <div class="flex flex-col sm:flex-row w-full mt-4 pl-2 pr-2 md:mt-[8em]">
     <figcaption class="mb-4 sm:mb-0 sm:mr-4">
         <h1 class="title font-bold">{{ project.title }}</h1>
-        <p class="description w-[45ch] font-contentfont font-medium text-sm md:text-lg mt-3">
-            {{ project.description }}
+        <p class="description w-[45ch] font-contentfont font-semibold text-gray-700 text-sm md:text-lg mt-3">
+            {{ project.description|raw|nl2br }}
         </p>
 <button class="cta-btn mt-4">
     <a href="{{ path('app_presentation_index', {'projectId': project.id}) }}">More Info</a>
@@ -41,8 +41,7 @@
     <aside class="aside shadow-inset">
         <nav role="tablist">
             {% for project in projects %}
-<button class="thumbnail__btn rounded" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 1 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">
-    <span class="sr-only">{{ project.title }}</span>
+<button class="thumbnail__btn rounded" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 3 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">    <span class="sr-only">{{ project.title }}</span>
         <span class="thumbnail__title">{{ project.title }}</span>
 </button>
             {% endfor %}

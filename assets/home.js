@@ -12,7 +12,6 @@ function toggleAttribute(elements, attribute, value) {
 function showTabContent(e) {
     const id = this.id;
 
-    // Stop any currently playing videos
     const videos = document.querySelectorAll('video');
     videos.forEach(video => video.pause());
 
@@ -33,4 +32,8 @@ function showTabContent(e) {
 
 buttons.forEach((button) => {
     button.addEventListener("click", showTabContent);
+});
+
+window.addEventListener('load', (event) => {
+    buttons[2].click();
 });
