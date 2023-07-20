@@ -20,9 +20,9 @@
         <div class="image-wrap">
             <img class="rounded shadow-sm" src="{{ asset('build/images/' ~ presentation.link) }}">
         </div>
-        <div class="caption w-full h-full p-4 flex flex-col justify-center items-start relative"> 
-            <div class="left-content flex flex-col justify-center items-start h-full max-w-[48%] content-wrapper w-full">
-                    <h1 class="md:pl-3 md:pb-10 mb-2 font-bold text-left w-full text-4xl md:text-6xl text-accentcolor">{{ presentation.fonction }}</h1>
+        <div class="w-full md:h-full p-3 flex flex-col md:justify-center items-start relative"> 
+            <div class="flex flex-col justify-center items-start md:h-full md:max-w-[50%] content-wrapper pl-[3rem] md:pt-6 ">
+                    <h1 class="md:pl-3 md:pb-2 mb-2 font-bold md:text-left w-full text-4xl md:text-6xl text-accentcolor">{{ presentation.fonction }}</h1>
                     <p class="md:pl-3 mt-4 pt-4 w-full text-left">{{ presentation.description|raw|nl2br }}</p>
                 {% if isFirstArticle %}
                     <div class='scrolldown mt-[12em]'>
@@ -33,7 +33,7 @@
                     </div>
                     {% set isFirstArticle = false %}
                 {% endif %}
-                <div class="absolute bottom-5 left-0 ml-[7%] w-[40%] h-0.5 bg-gray-300"></div>
+                <div class="md:absolute md:bottom-5 md:left-0 md:ml-[7%] md:w-[40%] md:h-0.5 md:bg-gray-300"></div>
             </div>
         </div>
     </article>
