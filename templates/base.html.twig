@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}"/>
         <title>
-            {% block title %}Projet 3 Name{% endblock %}
+            {% block title %}Portefolio{% endblock %}
         </title>
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -16,8 +16,10 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="bg-gray-100">
+    {% block navbar %}
     {% include 'includes/navbar.html.twig' %}
+    {% endblock %}
         {% block body %}{% endblock %}
     </body>
 </html>

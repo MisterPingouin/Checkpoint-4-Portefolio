@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    height: 100%;
+}
+
+article {
+    clear: both;
+    overflow: hidden;
+    min-height: 100vh;
+    height: 100vh;
+ 
+    .image-wrap {
+      width: 50%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-out;
+      
+      img {
+        display: table;
+        margin: 0 auto;
+        transform: translate(-50%, -50%);
+        width: 95%;
+        height: 95%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      }
+    }
+    
+    &.current, &.static {
+      .image-wrap {
+        transform: translateY(0%);
+      }
+    }
+}
+
+article.previous .image-wrap {
+  opacity: 0.9;
+}
+
+.scrolldown {
+  --color: #718096;
+  --sizeX: 24px;
+  --sizeY: 40px;
+  position: relative;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  border: calc(var(--sizeX) / 10) solid #a0aec0;
+  border-radius: 50px;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+.scrolldown::before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #a0aec0;
+  border-radius: 100%;
+  animation: scrolldown-anim 3s infinite;
+  box-sizing: border-box;
+  box-shadow: 0px -5px 3px 1px #a0aec0;
+}
+
+@keyframes scrolldown-anim {
+  0% {
+    opacity: 0;
+    height: 6px;
+  }
+  40% {
+    opacity: 1;
+    height: 10px;
+  }
+  80% {
+    transform: translate(0, 20px);
+    height: 10px;
+    opacity: 0;
+  }
+  100% {
+    height: 3px;
+    opacity: 0;
+  }
+}
+
+.chevrons {
+  padding: 6px 0 0 0;
+  margin-left: -3px;
+  margin-top: 38px;
+  width: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chevrondown {
+  margin-top: -6px;
+  position: relative;
+  border: solid #a0aec0;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) {
+  animation: pulse 500ms ease infinite alternate;
+}
+
+.chevrondown:nth-child(even) {
+  animation: pulse 500ms ease infinite alternate 250ms;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 765px) {
+  article {
+    
+    .image-wrap {
+      width: 100%;
+      height: 50%;
+      position: relative;
+      transform: translateY(0%);
+    }
+  }
+}
+
+.glissement {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      right: 50%;
+      bottom: -5px;
+      background: #1e90ff;
+      height: 2px;
+      transition: all 0.3s linear;
+  }
+
+  &:hover::after {
+      left: 0;
+      right: 0;
+  }
+}
