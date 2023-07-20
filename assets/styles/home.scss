@@ -102,21 +102,6 @@ figure {
             text-transform: uppercase;
         }
     }
-
-    &:hover {
-        .circle {
-            width: 100%;
-            .icon {
-                &.arrow {
-                    background: #fff;
-                    transform: translate(1rem, 0); 
-                }
-            }
-        }
-        .button-text {
-            color: #fff;
-        }
-    }
 }
 
 .aside {
@@ -244,5 +229,16 @@ figure {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media (max-width: 728px) { 
+    .mobile-border {
+        border-bottom: 1px solid #9ca3af; 
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); 
+    }
+
+    .image { 
+        max-width: 80%;
     }
 }
