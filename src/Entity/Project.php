@@ -35,6 +35,9 @@ class Project
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $video = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $website = null;
+
     public function getVideo(): ?string
     {
         return $this->video;
@@ -119,6 +122,18 @@ class Project
                 $presentation->setProject(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getWebsite(): ?string
+    {
+        return $this->website;
+    }
+
+    public function setWebsite(?string $website): static
+    {
+        $this->website = $website;
 
         return $this;
     }

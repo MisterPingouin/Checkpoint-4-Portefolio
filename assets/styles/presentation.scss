@@ -142,3 +142,26 @@ article.previous .image-wrap {
     }
   }
 }
+
+.glissement {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      right: 50%;
+      bottom: -5px;
+      background: #1e90ff;
+      height: 2px;
+      transition: all 0.3s linear;
+  }
+
+  &:hover::after {
+      left: 0;
+      right: 0;
+  }
+}

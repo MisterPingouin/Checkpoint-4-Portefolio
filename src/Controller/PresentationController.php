@@ -11,21 +11,30 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Project;
+use App\Repository\ProjectRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 #[Route('/presentation')]
 class PresentationController extends AbstractController
 {
     #[Route('/project/{projectId}', name: 'app_presentation_index', methods: ['GET'])]
-    public function index(int $projectId, PresentationRepository $presRepository): Response
-    {
+    public function index(
+        int $projectId,
+        PresentationRepository $presRepository,
+        ProjectRepository $projRepository
+    ): Response {
         $presentations = $presRepository->findBy(['project' => $projectId]);
+
+        $project = $projRepository->find($projectId);
+        $website = $project ? $project->getWebsite() : null;
 
         return $this->render('presentation/index.html.twig', [
             'presentations' => $presentations,
             'projectId' => $projectId,
+            'website' => $website
         ]);
     }
+
 
 
     #[Route('/new/{projectId}', name: 'app_presentation_new', methods: ['GET', 'POST'])]
