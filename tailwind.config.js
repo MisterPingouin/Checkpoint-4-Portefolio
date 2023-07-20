@@ -8,7 +8,7 @@ module.exports = {
         fontFamily: {
             'titlefont': ['Montserrat'],
             'subtitlefont': ['Lora'],
-            'contentfont': ['Hind Madurai'],
+            'contentfont': ['Raleway'],
         },
         extend: {
             colors: {

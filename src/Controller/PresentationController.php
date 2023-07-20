@@ -74,13 +74,19 @@ class PresentationController extends AbstractController
     #[Security('is_granted("ROLE_ADMIN")')]
     public function edit(Request $request, Presentation $presentation, EntityManagerInterface $entityManager): Response
     {
+
+        $projectId = $presentation->getProject()->getId();
         $form = $this->createForm(PresentationType::class, $presentation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_presentation_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute(
+                'app_presentation_index',
+                ['projectId' => $projectId],
+                Response::HTTP_SEE_OTHER
+            );
         }
 
         return $this->render('presentation/edit.html.twig', [
