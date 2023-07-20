@@ -27,9 +27,6 @@ figure {
 
 .description {
     width: 45ch;
-    font-size: 1.0625rem;
-    font-weight: 500;
-    color: #000;
     opacity: 0;
 }
 
@@ -177,3 +174,9 @@ figure {
 }
 
 
+@media (max-width: 765px) {
+    .cta-btn {
+        border-radius: 10vh;
+        padding: 0.3em 0.9em;
+    }
+  }

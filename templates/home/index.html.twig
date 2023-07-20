@@ -11,13 +11,13 @@
 {% endblock %}
 
 {% block body %}
-<div class="main relative min-h-[32em] m-auto flex justify-center items-start h-[90vh] font-titlefont">   
+<div class=" relative m-auto flex justify-center items-start h-[90vh] font-titlefont">   
         {% for project in projects %}
         <article class="article article__0{{ loop.index }}" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 1 ? 'hidden' }}> 
-  <div class="flex flex-col sm:flex-row w-full mt-[8em]">
+  <div class="flex flex-col md:flex-row w-full mt-4 pl-2 pr-2 md:mt-[8em]">
     <figcaption class="mb-4 sm:mb-0 sm:mr-4">
         <h1 class="title font-bold">{{ project.title }}</h1>
-        <p class="description mt-3">
+        <p class="description text-sm md:text-lg mt-3">
             {{ project.description }}
         </p>
 <button class="cta-btn mt-4">
