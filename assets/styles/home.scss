@@ -102,6 +102,21 @@ figure {
             text-transform: uppercase;
         }
     }
+
+    &:hover {
+        .circle {
+            width: 100%;
+            .icon {
+                &.arrow {
+                    background: #fff;
+                    transform: translate(1rem, 0); 
+                }
+            }
+        }
+        .button-text {
+            color: #fff;
+        }
+    }
 }
 
 .aside {
