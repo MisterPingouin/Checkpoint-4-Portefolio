@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="responsive relative mx-auto flex flex-col items-center justify-between h-screen md:h-[90vh] p-4 md:p-16 font-titlefont">   
+<div class="responsive mt-4 relative mx-auto flex flex-col items-center justify-between h-screen md:h-[90vh] p-4 md:p-16 font-titlefont">   
         {% for project in projects %}
 <article class="article article__0{{ loop.index }} flex flex-col items-center justify-between w-full" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 3 ? 'hidden' }}> 
     <div class="flex flex-col md:flex-row items-center justify-center w-full">
@@ -29,9 +29,9 @@
     </button>
 </a>
     </figcaption>
-   <figure class="flex justify-center sm:justify-start mt-2 md:mt-0 lg:ml-5 lg:pl-5">
+   <figure class="flex justify-center mt-2 md:mt-0 lg:ml-5 lg:pl-5">
 {% if project.video is not null %}
-    <video id="video{{ loop.index }}" class="image rounded max-w-full h-auto shadow-sm" autoplay muted>
+    <video id="video{{ loop.index }}" class="image rounded max-w-[45%] h-auto shadow-sm" autoplay muted>
         <source src="{{ asset('build/videos/' ~ project.video) }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -47,7 +47,7 @@
         <nav role="tablist">
             {% for project in projects %}
 <button class="thumbnail__btn rounded" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 3 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">    <span class="sr-only">{{ project.title }}</span>
-        <span class="thumbnail__title">{{ project.title }}</span>
+        <span class="thumbnail__title sm:text-sm">{{ project.title }}</span>
 </button>
             {% endfor %}
         </nav>

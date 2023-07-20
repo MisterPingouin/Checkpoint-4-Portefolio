@@ -13,11 +13,10 @@ figure {
 }
 
 .image {
-    max-width: 42em;
+    max-width: 42rem;
     height: auto;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 8;
     object-fit: cover;
-    margin-right:1rem;
 }
 
 .title {
@@ -251,7 +250,7 @@ figure {
     }
 
     .image { 
-        max-width: 80%;
+        max-width: 90%;
         margin-top:3em;
     }
 
@@ -270,7 +269,7 @@ figure {
 }
 
 @media (min-width: 1555px) {
-    
+
     .responsive {
     display: flex;
     flex-direction: column;
