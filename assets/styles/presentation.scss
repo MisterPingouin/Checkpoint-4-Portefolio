@@ -228,6 +228,13 @@ article.previous .image-wrap {
   }
 }
 
+@media (max-width: 728px) { 
+  .mobile-border {
+      border-bottom: 1px solid #9ca3af; 
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); 
+  }
+}
+
 // .glissement {
 //   position: relative;
 //   overflow: hidden;
