@@ -20,7 +20,7 @@ figure {
 }
 
 .title {
-    font-size: min(2.3em, 5vw);
+    font-size: min(3.5em, 7vw);
     opacity: 0;
     color: dodgerblue;
 }
@@ -28,17 +28,89 @@ figure {
 .description {
     opacity: 0;
 }
-
 .cta-btn {
-    place-self: start;
+    position: relative;
     display: inline-flex;
-    background-color: #1e90ff;
-    color: #fff;
+    cursor: pointer;
+    outline: none;
     border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
     opacity: 0;
-    border-radius: 10vh;
-    padding: 0.5em 1.25em;
+    width: 12rem;
+    height: auto;
+    &.learn-more {
+        .circle {
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 3rem;
+            height: 3rem;
+            background: dodgerblue;
+            border-radius: 1.625rem;
+            transition: width 0.5s ease; // Ajout de la transition
+            .icon {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                background: #fff;
+                &.arrow {
+                    left: 0.625rem;
+                    width: 1.125rem;
+                    height: 0.125rem;
+                    background: none;
+                    transform: translate(0, 0); // Position initiale
+                    transition: transform 0.5s ease; // Ajout de la transition
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        top: -0.25rem;
+                        right: 0.0625rem;
+                        width: 0.625rem;
+                        height: 0.625rem;
+                        border-top: 0.125rem solid #fff;
+                        border-right: 0.125rem solid #fff;
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+        .button-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            color: dodgerblue;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+        }
+    }
+    &:hover {
+        .circle {
+            width: 100%;
+            .icon {
+                &.arrow {
+                    background: #fff;
+                    transform: translate(1rem, 0); 
+                }
+            }
+        }
+        .button-text {
+            color: #fff;
+        }
+    }
 }
+
 
 .aside {
     position: absolute;
@@ -171,11 +243,3 @@ figure {
         opacity: 1;
     }
 }
-
-
-@media (max-width: 765px) {
-    .cta-btn {
-        border-radius: 10vh;
-        padding: 0.3em 0.9em;
-    }
-  }
