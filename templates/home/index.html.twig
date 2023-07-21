@@ -43,11 +43,11 @@
 </div>
 </article>
         {% endfor %}
-    <aside class="aside shadow-inset">
+    <aside class="aside absolute shadow-inset">
         <nav role="tablist">
             {% for project in projects %}
 <button class="thumbnail__btn rounded" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 3 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">    <span class="sr-only">{{ project.title }}</span>
-        <span class="thumbnail__title sm:text-sm">{{ project.title }}</span>
+        <span class="thumbnail__title text-sm md:text-md">{{ project.title }}</span>
 </button>
             {% endfor %}
         </nav>
