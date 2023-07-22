@@ -1,56 +1,61 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Portefolio{% endblock %}
-        {% block stylesheets %}
-		{{ parent()}}
-            {{ encore_entry_link_tags('home') }}
-        {% endblock %}
+{% block stylesheets %}
+{{ parent()}}
+{{ encore_entry_link_tags('home') }}
+{% endblock %}
 {% block javascripts %}
-	{{ parent()}}
-	{{ encore_entry_script_tags('home') }}
+{{ parent()}}
+{{ encore_entry_script_tags('home') }}
 {% endblock %}
 
 {% block body %}
-<div class="responsive mt-4 relative mx-auto flex flex-col items-center justify-between h-screen md:h-[90vh] p-4 md:p-16 font-titlefont">   
-        {% for project in projects %}
-<article class="article article__0{{ loop.index }} flex flex-col items-center justify-between w-full" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 3 ? 'hidden' }}> 
-    <div class="flex flex-col md:flex-row items-center justify-center w-full">
-    <figcaption class="ml-3 pl-3 md:mb-4 sm:mb-0 sm:mr-4">
-        <h1 class="title font-bold text-accentcolor">{{ project.title }}</h1>
-        <p class="description font-contentfont font-semibold text-gray-700 text-sm md:text-lg mt-3">
-            {{ project.description|raw|nl2br }}
-        </p>
-<a href="{{ path('app_presentation_index', {'projectId': project.id}) }}">
-    <button class="learn-more cta-btn mt-3 md:mt-6">
-        <span class="circle" aria-hidden="true">
-            <span class="icon arrow"></span>
-        </span>
-        <span class="button-text text-sm md:text-md">Learn more</span>
-    </button>
-</a>
-    </figcaption>
-   <figure class="flex justify-center mt-2 md:mt-0 lg:ml-5 lg:pl-5">
-{% if project.video is not null %}
-    <video id="video{{ loop.index }}" class="image rounded max-w-[45%] h-auto shadow-sm" autoplay muted>
-        <source src="{{ asset('build/videos/' ~ project.video) }}" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-{% else %}
-    <img class="image rounded max-w-full h-auto shadow-sm" src="{{ asset('build/images/' ~ project.image) }}" alt="picture of project" />
-{% endif %}
-</figure>
-
-</div>
-</article>
-        {% endfor %}
-    <aside class="aside absolute shadow-inset">
+<div class="responsive mt-4 relative mx-auto flex flex-col items-center justify-between md:h-[90vh] p-4 md:p-16 font-titlefont">   
+    {% for project in projects %}
+    <article class="article article__0{{ loop.index }} flex flex-col items-center justify-between w-full mt-2 md:mt-0" role="tabpanel" aria-labelledby="{{ loop.index }}" {{ loop.index != 3 ? 'hidden' }}> 
+        <div class="flex flex-col md:flex-row items-center justify-center w-full">
+            <figcaption class="ml-3 pl-3 md:mb-4 sm:mb-0 sm:mr-4">
+                <h1 class="title font-bold text-accentcolor">{{ project.title }}</h1>
+                <p class="description font-contentfont font-semibold text-gray-700 text-sm md:text-lg mt-3">
+                    {{ project.description|raw|nl2br }}
+                </p>
+                <a href="{{ path('app_presentation_index', {'projectId': project.id}) }}">
+                    <button class="learn-more cta-btn mt-3 md:mt-6">
+                        <span class="circle" aria-hidden="true">
+                            <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text text-sm md:text-md">Learn more</span>
+                    </button>
+                </a>
+            </figcaption>
+            <figure class="flex justify-center mt-2 md:mt-0 lg:ml-5 lg:pl-5">
+                {% if project.video is not null %}
+                    <video id="video{{ loop.index }}" class="image rounded max-w-[45%] h-auto shadow-sm" autoplay muted>
+                        <source src="{{ asset('build/videos/' ~ project.video) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                {% else %}
+                    <img class="image rounded max-w-full h-auto shadow-sm" src="{{ asset('build/images/' ~ project.image) }}" alt="picture of project" />
+                {% endif %}
+            </figure>
+        </div>
+    </article>
+    {% endfor %}
+    <aside class="aside absolute shadow-inset md:block mt-2 md:mt-0">
         <nav role="tablist">
             {% for project in projects %}
-<button class="thumbnail__btn rounded" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 3 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">    <span class="sr-only">{{ project.title }}</span>
-        <span class="thumbnail__title text-sm md:text-md">{{ project.title }}</span>
-</button>
+                <button class="thumbnail__btn rounded" id="{{ loop.index }}" role="tab" aria-selected="{{ loop.index == 3 ? 'true' : 'false' }}" tabindex="{{ loop.index == 1 ? 0 : -1 }}" aria-controls="tabpanel-{{ loop.index }}" style="background-image: url({{ asset('build/images/' ~ project.image) }});">
+                    <span class="sr-only">{{ project.title }}</span>
+                    <span class="thumbnail__title text-sm md:text-md">{{ project.title }}</span>
+                </button>
             {% endfor %}
         </nav>
     </aside>
+<button id="toggle-thumb-btn" class="mobile-nav-toggle block">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-white">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
 </div>
 {% endblock %}

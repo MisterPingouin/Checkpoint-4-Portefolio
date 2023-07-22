@@ -37,3 +37,17 @@ buttons.forEach((button) => {
 window.addEventListener('load', () => {
     buttons[2]?.click();
 });
+const toggleThumbnail = () => {
+    const aside = document.querySelector('.aside');
+    const btn = document.querySelector('#toggle-thumb-btn svg');
+
+    aside.classList.toggle('hide-thumbnail');
+
+    if (aside.classList.contains('hide-thumbnail')) {
+        btn.style.transform = 'rotate(0deg)';
+    } else {
+        btn.style.transform = 'rotate(180deg)';
+    }
+};
+
+document.querySelector('#toggle-thumb-btn').addEventListener('click', toggleThumbnail);

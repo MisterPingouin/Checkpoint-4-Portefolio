@@ -250,7 +250,8 @@ figure {
 
     .image { 
         max-width: 90%;
-        margin-top:3em;
+        margin-top:1em;
+        margin-bottom :3em;
     }
 
     .circle {
@@ -263,17 +264,52 @@ figure {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom: 10em;
     }
 }
 
-@media (min-width: 1555px) {
-
-    .responsive {
+#toggle-thumb-btn {
+    display: none;
+    position: fixed;
+    bottom: 20%;
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 999;
+    border-radius: 50%;
+    background-color: dodgerblue;
+    width: 40px;
+    height: 40px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding-bottom: 10em;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.hide-thumbnail {
+    visibility: hidden;
+    transform: translateY(100%);
+}
+
+.aside {
+    bottom: 0;
+    display: flex;
+    height: 10rem;
+    width: 100%;
+    transition: transform 0.5s ease-out;
+}
+
+@media (max-width: 728px) { 
+    #toggle-thumb-btn {
+        display: flex; 
+    }
+
+    .aside {
+        transform: translateY(100%);
     }
 }
+
+@media screen and (min-width: 768px) {
+    #toggle-thumb-btn {
+      display: none;
+    }
+  }
+  
