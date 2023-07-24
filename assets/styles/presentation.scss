@@ -2,7 +2,7 @@ article {
   clear: both;
   overflow: hidden;
   min-height: 100vh;
-  height: 100vh;
+height:100vh;
 
   .image-wrap {
     width: 50%;
@@ -130,31 +130,33 @@ to {
     display: none;
   }
 
-  img, .first-image {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
+  .mresponsive {
+    margin-top: 1em;
+    margin-bottom:2em;
   }
-  
-
 
   article {
     display: flex;
     flex-direction: column-reverse;
+    height:auto;
+
     .image-wrap {
         width: 100%;
-object-fit: cover;
-        min-height: 40%;
+        object-fit: cover;
         position: relative;
         transform: translateY(0%);
-        order: 2;
-        top:none;
-        right:none;
+  
     }
     
     .content-wrapper {
         order: 1;
         min-height: 40%;
+    }
+
+    .image-wrap img {
+      position:relative;
+      left:0;
+      transform:none;
     }
 }
 }
