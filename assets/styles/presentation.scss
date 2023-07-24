@@ -126,6 +126,9 @@ to {
 
 @media (max-width: 765px) {
 
+  .learn-more {
+    animation: none !important;
+  }
   .scrolldown {
     display: none;
   }
