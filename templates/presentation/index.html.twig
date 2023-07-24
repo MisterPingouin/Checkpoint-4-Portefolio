@@ -20,10 +20,11 @@
         <div class="image-wrap">
             <img class="rounded shadow-sm" src="{{ asset('build/images/' ~ presentation.link) }}">
         </div>
-        <div class="w-full md:h-full p-3 flex flex-col md:justify-center items-start relative"> 
+        <div class="mresponsive w-full md:h-full p-3 flex flex-col md:justify-center items-start relative"> 
             <div class="flex flex-col justify-center items-start md:h-full md:max-w-[50%] content-wrapper md:pl-[3rem] md:pt-6">
-                    <h1 class="md:pl-3 md:pb-2 mb-2 font-bold md:text-left w-full text-2xl md:text-6xl text-accentcolor">{{ presentation.fonction }}</h1>
+                    <h1 class="md:pl-3 md:pb-2 mb-2 font-bold md:text-left w-full text-2xl md:text-6xl text-accentcolor">{{ presentation.fonction|raw|nl2br }}</h1>
                     <p class="md:pl-3 mt-4 pt-4 w-full font-contentfont font-semibold text-gray-700 text-left">{{ presentation.description|raw|nl2br }}</p>
+                    
         {% if loop.last %}
 {% if website %}
     <div class="unique-btn-container self-center mt-3 md:mt-[5em] font-contentfont font-medium text-accentcolor text-sm md:text-md">
@@ -39,7 +40,7 @@
 {% endif %}
         {% else %}
             {% if isFirstArticle %}
-                <div class="scrolldown mt-[12em]">
+                <div class="scrolldown">
                     <div class="chevrons">
                         <div class='chevrondown'></div>
                         <div class='chevrondown'></div>
