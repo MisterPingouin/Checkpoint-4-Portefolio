@@ -130,18 +130,28 @@ to {
     display: none;
   }
 
+  img, .first-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  
+
 
   article {
     display: flex;
     flex-direction: column-reverse;
     .image-wrap {
         width: 100%;
-
+object-fit: cover;
         min-height: 40%;
         position: relative;
         transform: translateY(0%);
         order: 2;
+        top:none;
+        right:none;
     }
+    
     .content-wrapper {
         order: 1;
         min-height: 40%;
